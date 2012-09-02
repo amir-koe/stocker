@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="${language}" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<head>
+		<meta charset="utf-8" />
+		<title>Stocker - ${title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif] -->
+
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico" />
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#" t:type="PageLink" page="Index">Project name</a>
+
+					<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								Settings
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#" t:type="PageLink" page="settings/StockSites">Stock sites</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<t:body />
+
+	</body>
+
+</html>

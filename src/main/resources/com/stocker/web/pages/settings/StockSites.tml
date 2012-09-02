@@ -1,0 +1,28 @@
+<t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+	title="Settings - Stock Site Logins">
+	<div class="container">
+		<h1>Stock sites</h1>
+		<a href="#addStockSite" class="btn btn-primary" data-toggle="modal">Add	Stock Site</a>
+		<div>
+			<table t:type="Grid" source="StockSiteLogins" exclude="id,created,lastModified">
+			</table>
+		</div>
+		<t:form t:id="addStockSiteForm">
+			<div class="modal hide fade" id="addStockSite">
+				<div class="modal-header">
+				 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 id="myModalLabel">Add Stock Site</h3>
+				</div>
+				<div class="modal-body">
+					<t:errors></t:errors>
+					<div t:type="BeanEditor" object="stockSite">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<submit t:type="submit" class="btn btn-primary" value="Create"/>
+					<button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+				</div>
+			</div>
+		</t:form>
+	</div>
+</t:layout>

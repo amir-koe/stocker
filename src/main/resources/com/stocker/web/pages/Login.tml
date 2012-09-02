@@ -1,0 +1,19 @@
+<t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	title="Home">
+	<div class="container">
+		<h1>Login</h1>
+		<h2>Login via Username/Password</h2>
+		<t:if test="showError">
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h4>Authentication failed!</h4>
+				Username and/or password is wrong.
+			</div>
+		</t:if>
+		<form action="${contextPath}/logincheck" class="form-inline" method="post">
+			<input type="text" name="username" class="input-small" placeholder="Username" />&nbsp;
+			<input type="password" name="password" class="input-small" placeholder="Password" />&nbsp; 
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</form>
+	</div>
+</t:layout>
