@@ -1,0 +1,9 @@
+<t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" title="Home">
+  <div class="container">
+    <h1>About Page</h1>
+    <p>
+      This will be the greatest stock analytics tool ever... 4sure!
+      <br/> Let the party start.
+    </p>
+  </div>
+</t:layout>

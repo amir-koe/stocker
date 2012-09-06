@@ -24,12 +24,12 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#" t:type="PageLink" page="Index">Project name</a>
+					<a class="brand" href="#" t:type="PageLink" page="Index">Stocker</a>
 
 					<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li>
-							<a href="#about">About</a>
+							<a href="#" t:type="PageLink" page="About">About</a>
 						</li>
 						<li class="dropdown">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
