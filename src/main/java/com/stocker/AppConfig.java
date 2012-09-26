@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.inject.Inject;
 import javax.persistence.Cache;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,13 +14,13 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.metamodel.Metamodel;
 import javax.sql.DataSource;
 
-import org.h2.Driver;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -39,13 +40,17 @@ import com.stocker.model.auth.spring.TenantUser;
 @ImportResource({"classpath:com/stocker/security.xml", "classpath:com/stocker/data-jpa.xml"})
 public class AppConfig
 {
+    @Inject
+    private Environment env;
+
     @Bean
     public DataSource dataSource() throws PropertyVetoException
     {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setJdbcUrl("jdbc:h2:tcp://localhost/data/stocker");
-        dataSource.setDriverClass(Driver.class.getName());
-        dataSource.setUser("sa");
+        dataSource.setJdbcUrl(env.getProperty("db.jdbcUrl", "jdbc:h2:tcp://localhost/stocker"));
+        dataSource.setDriverClass(env.getProperty("db.driverClass", "org.h2.Driver"));
+        dataSource.setUser(env.getProperty("db.user", "sa"));
+        dataSource.setPassword(env.getProperty("db.password", ""));
         return dataSource;
     }
 

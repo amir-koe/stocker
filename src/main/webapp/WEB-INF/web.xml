@@ -18,6 +18,11 @@
 	</context-param>
 
 	<context-param>
+		<param-name>contextInitializerClasses</param-name>
+		<param-value>com.stocker.StockerApplicationContextInitializer</param-value>
+	</context-param>
+
+	<context-param>
 		<param-name>tapestry.app-package</param-name>
 		<param-value>com.stocker.web</param-value>
 	</context-param>
