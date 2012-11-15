@@ -47,7 +47,7 @@ public class AppConfig
     public DataSource dataSource() throws PropertyVetoException
     {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setJdbcUrl(env.getProperty("db.jdbcUrl", "jdbc:h2:tcp://localhost/stocker"));
+        dataSource.setJdbcUrl(env.getProperty("db.jdbcUrl", "jdbc:h2:data/stocker"));
         dataSource.setDriverClass(env.getProperty("db.driverClass", "org.h2.Driver"));
         dataSource.setUser(env.getProperty("db.user", "sa"));
         dataSource.setPassword(env.getProperty("db.password", ""));

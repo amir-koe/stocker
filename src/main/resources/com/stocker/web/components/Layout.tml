@@ -1,55 +1,107 @@
-
 <!DOCTYPE html>
-<html lang="${language}" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-	<head>
-		<meta charset="utf-8" />
-		<title>Stocker - ${title}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="${language}"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+<meta charset="utf-8" />
+<title>Stocker - ${title}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif] -->
 
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif] -->
-
-		<style type="text/css">
-			body {
-				padding-top: 60px;
-				padding-bottom: 40px;
-			}
-		</style>
-
-		<!-- Le fav and touch icons -->
-		<link rel="shortcut icon" href="../assets/ico/favicon.ico" />
-	</head>
-
-	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" href="#" t:type="PageLink" page="Index">Stocker</a>
-
-					<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li>
-							<a href="#" t:type="PageLink" page="About">About</a>
-						</li>
-						<li class="dropdown">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-								Settings
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#" t:type="PageLink" page="settings/StockSites">Stock sites</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					</div>
-				</div>
-			</div>
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+</style>
+</head>
+		<div id="header">
+			<h1>
+				<a href="./dashboard.html">STOCKER</a>
+			</h1>
 		</div>
 
-		<t:body />
+		<div id="search">
+			<input type="text" placeholder="Search here..." />
+			<button type="submit" class="tip-right" title="Search">
+				<i class="icon-search icon-white"></i>
+			</button>
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+			<ul class="nav btn-group">
+				<li class="btn btn-inverse"><a title="" href="#"><i
+						class="icon icon-user"></i> <span class="text">Profile</span></a></li>
+				<li class="btn btn-inverse dropdown" id="menu-messages"><a
+					href="#" data-toggle="dropdown" data-target="#menu-messages"
+					class="dropdown-toggle"><i class="icon icon-envelope"></i> <span
+						class="text">Messages</span> <span class="label label-important">5</span>
+						<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a class="sAdd" title="" href="#" t:type="PageLink"
+							page="Index">new message</a></li>
+						<li><a class="sInbox" title="" href="#" t:type="PageLink"
+							page="Index">inbox</a></li>
+						<li><a class="sOutbox" title="" href="#" t:type="PageLink"
+							page="Index">outbox</a></li>
+						<li><a class="sTrash" title="" href="#" t:type="PageLink"
+							page="Index">trash</a></li>
+					</ul></li>
+				<li class="btn btn-inverse"><a title="" href="#"><i
+						class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+				<li class="btn btn-inverse"><a class="brand" href="#"
+					t:type="PageLink" page="Login"><i class="icon icon-share-alt"></i>
+						<span class="text">Logout</span></a></li>
+			</ul>
+		</div>
+		<div id="sidebar">
+			<a href="#" t:type="PageLink" page="Index" class="visible-phone"><i
+				class="icon icon-home"></i>Dashboard</a>
+			<ul>
+				<li class="active"><a href="#" t:type="PageLink" page="Index"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
+				<li><a href="#" t:type="PageLink" page="settings/StockSites"><i
+						class="icon icon-home"></i> <span>Stock sites</span></a></li>
+				<li class="submenu"><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-th-list"></i> <span>Form elements</span> <span
+						class="label">3</span></a>
+					<ul>
+						<li><a href="#" t:type="PageLink" page="Index">Common
+								elements</a></li>
+						<li><a href="#" t:type="PageLink" page="Index">Validation</a></li>
+						<li><a href="#" t:type="PageLink" page="Index">Wizard</a></li>
+					</ul></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-pencil"></i> <span>Interface elements</span></a></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-th"></i> <span>Tables</span></a></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="submenu"><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-file"></i> <span>Sample pages</span> <span
+						class="label">4</span></a>
+					<ul>
+						<li><a href="#" t:type="PageLink" page="Index">Invoice</a></li>
+						<li><a href="#" t:type="PageLink" page="Index">Support
+								chat</a></li>
+						<li><a href="#" t:type="PageLink" page="Index">Calendar</a></li>
+						<li><a href="#" t:type="PageLink" page="Index">Gallery</a></li>
+					</ul></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a></li>
+				<li><a href="#" t:type="PageLink" page="Index"><i
+						class="icon icon-inbox"></i> <span>Widgets</span></a></li>
+			</ul>
 
-	</body>
+		</div>
 
+		<div id="style-switcher">
+			<i class="icon-arrow-left icon-white"></i> <span>Style:</span> <a
+				href="#grey"
+				style="background-color: #555555; border-color: #aaaaaa;"></a> <a
+				href="#blue" style="background-color: #2D2F57;"></a> <a href="#red"
+				style="background-color: #673232;"></a>
+		</div>
+		
+		<t:body/>
 </html>
