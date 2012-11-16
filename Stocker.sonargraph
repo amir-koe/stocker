@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<context version="7.1.5.153">
+    <scope name="My Project" type="Project">
+        <architecture>
+            <element name="Services" type="Layer">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="com.stocker.services.**" type="StrongTypePattern"/>
+                </element>
+                <dependency type="DisallowedDependency" toName="External|External::LayerGroup|Tapestry"/>
+                <dependency type="AllowedDependency" toName="Project|My Project::Layer|Model"/>
+            </element>
+            <element name="Web" type="LayerGroup">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="com.stocker.web.**" type="StrongTypePattern"/>
+                </element>
+                <element name="Pages" type="Layer">
+                    <element name="Assignment" type="TypeFilter">
+                        <element name="com.stocker.web.pages.**" type="StrongTypePattern"/>
+                    </element>
+                    <dependency type="AllowedDependency" toName="Project|My Project::LayerGroup|Web::Layer|Components"/>
+                </element>
+                <element name="Components" type="Layer">
+                    <element name="Assignment" type="TypeFilter">
+                        <element name="com.stocker.web.components.**" type="StrongTypePattern"/>
+                    </element>
+                </element>
+                <dependency type="AllowedDependency" toName="External|External::LayerGroup|Tapestry"/>
+                <dependency type="AllowedDependency" toName="Project|My Project::Layer|Model"/>
+                <dependency type="AllowedDependency" toName="Project|My Project::Layer|Services"/>
+            </element>
+            <element name="Model" type="Layer">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="com.stocker.model.**" type="StrongTypePattern"/>
+                </element>
+                <dependency type="DisallowedDependency" toName="External|External::LayerGroup|Tapestry"/>
+            </element>
+        </architecture>
+        <workspace>
+            <element name="bin" type="JavaRootDirectory">
+                <reference name="Project|My Project::BuildUnit|stocker"/>
+            </element>
+            <element name="src/main/java" type="JavaRootDirectory">
+                <reference name="Project|My Project::BuildUnit|stocker"/>
+            </element>
+            <element name="src/main/resources" type="JavaRootDirectory">
+                <reference name="Project|My Project::BuildUnit|stocker"/>
+            </element>
+        </workspace>
+        <physical>
+            <element name="stocker" type="BuildUnit"/>
+        </physical>
+    </scope>
+    <scope name="External" type="External">
+        <element name="Filter" type="TypeFilter">
+            <element name="**" type="IncludeTypePattern"/>
+            <element name="java.io.*" type="ExcludeTypePattern"/>
+            <element name="java.lang.*" type="ExcludeTypePattern"/>
+            <element name="java.lang.annotation.*" type="ExcludeTypePattern"/>
+            <element name="java.lang.ref.*" type="ExcludeTypePattern"/>
+            <element name="java.math.*" type="ExcludeTypePattern"/>
+            <element name="java.nio.*" type="ExcludeTypePattern"/>
+            <element name="java.nio.channels.*" type="ExcludeTypePattern"/>
+            <element name="java.nio.channels.spi.*" type="ExcludeTypePattern"/>
+            <element name="java.nio.charset.*" type="ExcludeTypePattern"/>
+            <element name="java.nio.charset.spi.*" type="ExcludeTypePattern"/>
+            <element name="java.text.*" type="ExcludeTypePattern"/>
+            <element name="java.util.*" type="ExcludeTypePattern"/>
+            <element name="java.util.jar.*" type="ExcludeTypePattern"/>
+            <element name="java.util.prefs.*" type="ExcludeTypePattern"/>
+            <element name="java.util.regex.*" type="ExcludeTypePattern"/>
+            <element name="java.util.zip.*" type="ExcludeTypePattern"/>
+        </element>
+        <architecture>
+            <element name="Tapestry" type="LayerGroup">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="org.apache.tapestry5.**" type="IncludeTypePattern"/>
+                </element>
+                <element name="Tapestry API" type="Layer">
+                    <element name="Assignment" type="TypeFilter">
+                        <element name="org.apache.tapestry5.**" type="IncludeTypePattern"/>
+                        <element name="org.apache.tapestry5.**.internal.**" type="ExcludeTypePattern"/>
+                    </element>
+                </element>
+                <element name="Tapestry Internal" type="Layer">
+                    <element name="Assignment" type="TypeFilter">
+                        <element name="org.apache.tapestry5.**.internal.**" type="IncludeTypePattern"/>
+                    </element>
+                    <stereotype name="Hidden"/>
+                </element>
+            </element>
+            <element name="Spring" type="LayerGroup">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="org.springframework.**" type="StrongTypePattern"/>
+                </element>
+            </element>
+            <element name="JPA" type="LayerGroup">
+                <element name="Assignment" type="TypeFilter">
+                    <element name="javax.persistence.**" type="StrongTypePattern"/>
+                </element>
+            </element>
+        </architecture>
+    </scope>
+    <scope name="Global" type="Global">
+        <element name="Configuration" type="Configuration"/>
+        <element name="Filter" type="TypeFilter">
+            <element name="**" type="IncludeTypePattern"/>
+        </element>
+    </scope>
+</context>
